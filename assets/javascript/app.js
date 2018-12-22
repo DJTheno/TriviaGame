@@ -36,7 +36,7 @@ $(document).ready(function () {
             id: "Q4",
             answer: 4
         },
-    ]
+    ];
 
     //Button that starts Game//
     $(document).on('click', '#start', function () {
@@ -53,21 +53,21 @@ $(document).ready(function () {
             //tells timer to start//
             function start() {
                 counter = setInterval(timer, 1000);
-                countdown: function() {
+                function counter() {
                     game.counter--;
                     $('#timer').html(game.counter);
                     if (game.counter === 0) {
                         game.timeUP();
                     }
-                };
+                }
 
                 //append questions to html
-                startGame: function() {
+                 function startQuestions() {
                     timer = setInterval(game.countdown, 1000);
                     $('#start').remove();
-                    for (var i = 0; i < questions.length; i++) {
-                        $("#container").append('<h3>' + questions[i].question + '</h3>');
-                        for (var j = 0; j < questions[i].answers.length; j++) {
+                    for (var i = 0; i < game.length; i++) {
+                        $("#container").append('<h3>' + game[i].question + '</h3>');
+                        for (var j = 0; j < game[i].answers.length; j++) {
                             $("#container").append('<input type="radio" name="question' + '-' + i + '" value="' + questions[i].answers[j] + '">' + questions[i].answers[j]);
 
                         }
@@ -120,7 +120,7 @@ $(document).ready(function () {
                     });
                     game.result();
                 }
-                result: function() {
+                 function result() {
                     clearInterval(timer);
                     $("#response").empty();
                     $("#response").append("Correct answers: " + game.correct + "<br/>");
@@ -144,4 +144,3 @@ $(document).ready(function () {
 
 
 
-});
