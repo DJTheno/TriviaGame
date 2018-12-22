@@ -6,9 +6,10 @@ $(document).ready(function () {
     var incorrect = 0;
     var counter = 30;
 
+
     var answers = [];
     //Array of questions//
-    var questions = [
+    var game = [
         {
             question: "Who is Batmans sidekick??",
             possibles: ["Robin", "BlueJay", "Speedy", "Aqua ladd"],
@@ -118,25 +119,17 @@ $(document).ready(function () {
                         }
                     });
                     game.result();
-                },
-                        result:function(){
-                        clearInterval(timer);
-                        $("#response").empty();
-                        $("#response").append("Correct answers: " + game.correct + "<br/>");
-                        $("#response").append("Incorrect answers: " + game.incorrect);
-               
-                        }
-                    }
+                }
+                result: function() {
+                    clearInterval(timer);
+                    $("#response").empty();
+                    $("#response").append("Correct answers: " + game.correct + "<br/>");
+                    $("#response").append("Incorrect answers: " + game.incorrect);
 
+                }
 
-                  
-                   
-
-
-
-
-
-
+            }
+        });
     });
 });
 
@@ -151,3 +144,4 @@ $(document).ready(function () {
 
 
 
+});
