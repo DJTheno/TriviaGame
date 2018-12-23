@@ -5,6 +5,12 @@ $(document).ready(function () {
     var correct = 0;
     var incorrect = 0;
     var counter = 30;
+    var checkAnswers=[];
+    var stop=[];
+    var timer=[];
+    var questions=[];
+    var score=[];
+
 
 
     var answers = [];
@@ -39,7 +45,7 @@ $(document).ready(function () {
     ];
 
     //Button that starts Game//
-    $(document).on('click', '#start', function () {
+    $(document).on('click', '#startGame', function () {
         game.startGame();
         // call start()
         //   which populates the page with questions
@@ -62,7 +68,7 @@ $(document).ready(function () {
                 }
 
                 //append questions to html
-                 function startQuestions() {
+                function startQuestions() {
                     timer = setInterval(game.countdown, 1000);
                     $('#start').remove();
                     for (var i = 0; i < game.length; i++) {
@@ -120,7 +126,7 @@ $(document).ready(function () {
                     });
                     game.result();
                 }
-                 function result() {
+                function result() {
                     clearInterval(timer);
                     $("#response").empty();
                     $("#response").append("Correct answers: " + game.correct + "<br/>");
